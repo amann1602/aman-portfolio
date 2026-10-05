@@ -77,12 +77,12 @@ export default function Hero() {
       <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12">
         
         {/* ========================================================================= */}
-        {/* 1. EXPANSIVE HERO TEXT & IDENTITY (Max Width: ~920px)                     */}
+        {/* 1. EXPANSIVE HERO TEXT & IDENTITY (Centered Alignment)                    */}
         {/* ========================================================================= */}
-        <div className="max-w-[920px] space-y-4 sm:space-y-6">
+        <div className="max-w-[960px] mx-auto text-center flex flex-col items-center space-y-5 sm:space-y-6">
           
           {/* Status Eyebrow Ribbon */}
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-xs font-mono text-emerald-700 dark:text-emerald-300">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="font-semibold">Available for AI & Software Roles</span>
@@ -99,13 +99,13 @@ export default function Hero() {
           </div>
 
           {/* Main Headline */}
-          <div className="space-y-1.5">
+          <div className="space-y-2 text-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.08]">
               Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-indigo-900 to-indigo-600 dark:from-white dark:via-indigo-200 dark:to-indigo-400">Aman Inamdar</span>.
             </h1>
 
             {/* Dynamic Rotating Roles */}
-            <div className="h-10 sm:h-12 flex items-center overflow-hidden">
+            <div className="h-10 sm:h-12 flex items-center justify-center overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={titleIndex}
@@ -113,7 +113,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  className="text-xl sm:text-2xl lg:text-3xl font-bold text-indigo-600 dark:text-indigo-400 font-sans tracking-tight flex items-center gap-2"
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold text-indigo-600 dark:text-indigo-400 font-sans tracking-tight flex items-center justify-center gap-2"
                 >
                   <span>{profile.rotatingTitles[titleIndex]}</span>
                   <Sparkles className="w-5 h-5 text-indigo-400 animate-pulse" />
@@ -123,12 +123,12 @@ export default function Hero() {
           </div>
 
           {/* Broad, Informative Bio Narrative */}
-          <p className="text-base sm:text-lg lg:text-[19px] text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+          <p className="text-base sm:text-lg lg:text-[19px] text-slate-600 dark:text-slate-300 leading-relaxed font-normal text-center max-w-3xl mx-auto">
             Computer Science undergraduate at <strong className="text-slate-900 dark:text-white font-semibold">MIT ADT University, Pune</strong> (CGPA: 8.14). Published researcher in AI, IoT, and urban systems, with <strong className="text-slate-900 dark:text-white font-semibold">11 open-source GitHub repositories</strong> spanning real-time computer vision (YOLOv5), enterprise Spring Boot microservices, and predictive machine learning.
           </p>
 
           {/* Functional Actions Row */}
-          <div className="flex flex-wrap items-center gap-3 pt-1">
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Link
               href="#projects"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-semibold text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]"
@@ -146,10 +146,20 @@ export default function Hero() {
               <span>Download Resume</span>
             </a>
 
+            {/* Interactive Ask Aman AI Chat Button */}
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent('open-ai-chat'))}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-semibold text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] cursor-pointer"
+              title="Open AI Chat Assistant"
+            >
+              <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <span>Ask Aman AI</span>
+            </button>
+
             {/* Functional 1-Click Copy Email Button */}
             <button
               onClick={handleCopyEmail}
-              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-mono font-medium transition-all duration-300 ease-out hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-mono font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 cursor-pointer"
               title="Click to copy email address"
             >
               {copiedEmail ? (
@@ -189,7 +199,7 @@ export default function Hero() {
           </div>
 
           {/* Factual Credential Badges */}
-          <div className="pt-2 flex flex-wrap items-center gap-y-2 gap-x-5 text-xs font-mono text-slate-500 dark:text-slate-400">
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-y-2.5 gap-x-6 text-xs font-mono text-slate-500 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
               <span>8.14 CGPA • MIT ADT University</span>

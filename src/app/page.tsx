@@ -14,6 +14,7 @@ import Achievements from '@/components/Achievements';
 import ResumeCTA from '@/components/ResumeCTA';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import AiAssistantModal from '@/components/AiAssistantModal';
 
 export default function HomePage() {
   return (
@@ -64,6 +65,9 @@ export default function HomePage() {
 
       {/* 15. Footer */}
       <Footer />
+
+      {/* 16. Floating Interactive AI Assistant Chatbot */}
+      <AiAssistantModal />
     </div>
   );
 }
