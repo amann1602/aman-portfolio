@@ -82,9 +82,9 @@ export const profile: ProfileInfo = {
       "description": "Embedded Systems & Full Stack"
     },
     {
-      "value": "5+",
-      "label": "Major Projects",
-      "description": "AI, Computer Vision & Web Systems"
+      "value": "11+",
+      "label": "Projects & Repositories",
+      "description": "AI, Computer Vision, Java & Spring Boot"
     }
   ],
   "focusAreas": [

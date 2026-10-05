@@ -8,14 +8,14 @@ export default function ResumeCTA() {
   const resumePath = '/resume/Aman_Inamdar_Resume.pdf';
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
+    <section className="py-10 sm:py-12 md:py-14 bg-white dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
-          className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 text-white p-8 sm:p-12 lg:p-16 overflow-hidden shadow-xl"
+          transition={{ duration: 0.4 }}
+          className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 text-white p-6 sm:p-10 lg:p-12 overflow-hidden shadow-xl"
         >
           {/* Subtle background tech accent */}
           <div className="absolute top-0 right-0 -mt-12 -mr-12 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />

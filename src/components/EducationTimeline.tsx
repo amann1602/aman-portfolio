@@ -7,10 +7,10 @@ import { educationList } from '@/data/education';
 
 export default function EducationTimeline() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
+    <section className="py-10 sm:py-12 md:py-14 bg-white dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <div className="max-w-3xl mb-12 sm:mb-16">
+        <div className="max-w-3xl mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono font-semibold tracking-wider text-slate-700 dark:text-slate-300 mb-3">
             <span>ACADEMIC FOUNDATION</span>
           </div>

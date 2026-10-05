@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://aman-portfolio.vercel.app/sitemap.xml
+Sitemap: https://amaninamdar.in/sitemap.xml
