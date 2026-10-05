@@ -79,7 +79,7 @@ export default function Skills() {
                         {category.title}
                       </h3>
                       <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                        {category.skills.length} Verified Tools
+                        {category.skills.length} Core Tools
                       </span>
                     </div>
                   </div>

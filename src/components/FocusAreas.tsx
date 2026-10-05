@@ -15,7 +15,7 @@ const iconMap: Record<string, React.ReactNode> = {
 export default function FocusAreas() {
   return (
     <section className="py-10 sm:py-12 md:py-14 bg-white dark:bg-slate-950 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12">
         {/* Section Heading */}
         <div className="max-w-3xl mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono font-semibold tracking-wider text-slate-700 dark:text-slate-300 mb-3">
@@ -38,7 +38,7 @@ export default function FocusAreas() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:border-indigo-400 dark:hover:border-indigo-600/70 hover:shadow-md transition-all duration-300 group flex flex-col justify-between"
+              className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-indigo-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out group flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">

@@ -9,7 +9,7 @@ export default function ResumeCTA() {
 
   return (
     <section className="py-10 sm:py-12 md:py-14 bg-white dark:bg-slate-950 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function ResumeCTA() {
               <a
                 href={resumePath}
                 download="Aman_Inamdar_Resume.pdf"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.98] shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-semibold text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-lg shadow-sm"
               >
                 <FileDown className="w-4 h-4 text-indigo-600" />
                 <span>Download Resume</span>
@@ -65,7 +65,7 @@ export default function ResumeCTA() {
                 href={resumePath}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-white border border-slate-700 font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-white border border-slate-700 font-semibold text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <Eye className="w-4 h-4 text-slate-300" />
                 <span>View Resume</span>

@@ -9,7 +9,7 @@ export default function Certifications() {
     <section id="certifications" className="py-24 md:py-32 relative bg-white dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Verified Competencies"
+          badge="Professional Competencies"
           title="Professional"
           highlight="Certifications"
           subtitle="Accredited certifications from global cloud providers, AI institutes, and technology leaders."
@@ -48,11 +48,11 @@ export default function Certifications() {
               </div>
 
               <div className="pt-4 mt-5 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono">
-                <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+                <span className="flex items-center gap-1.5 text-indigo-600 dark:text-indigo-400">
                   <ShieldCheck className="w-4 h-4" />
-                  Verified Credential
+                  Official Credential
                 </span>
-                <span>Resume Verified</span>
+                <span>Active</span>
               </div>
             </motion.div>
           ))}

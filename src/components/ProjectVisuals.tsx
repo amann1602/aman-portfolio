@@ -464,8 +464,8 @@ export function GenericCodeVisual({ title }: { title: string }) {
           <Code className="w-4 h-4 text-indigo-500" />
           {title}
         </span>
-        <span className="px-2.5 py-0.5 rounded-full text-[11px] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 font-medium">
-          Verified Repo
+        <span className="px-2.5 py-0.5 rounded-full text-[11px] bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800/60 font-medium">
+          Public Repo
         </span>
       </div>
       <div className="my-2 p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs">

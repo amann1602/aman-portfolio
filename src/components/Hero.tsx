@@ -74,12 +74,12 @@ export default function Hero() {
       {/* Gentle background accent glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-50/70 dark:bg-indigo-950/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12">
         
         {/* ========================================================================= */}
-        {/* 1. EXPANSIVE FULL-WIDTH HERO TEXT & IDENTITY                              */}
+        {/* 1. EXPANSIVE HERO TEXT & IDENTITY (Max Width: ~920px)                     */}
         {/* ========================================================================= */}
-        <div className="max-w-4xl space-y-4 sm:space-y-5">
+        <div className="max-w-[920px] space-y-4 sm:space-y-6">
           
           {/* Status Eyebrow Ribbon */}
           <div className="flex flex-wrap items-center gap-2">
@@ -99,8 +99,8 @@ export default function Hero() {
           </div>
 
           {/* Main Headline */}
-          <div className="space-y-1">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.12]">
+          <div className="space-y-1.5">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.08]">
               Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-indigo-900 to-indigo-600 dark:from-white dark:via-indigo-200 dark:to-indigo-400">Aman Inamdar</span>.
             </h1>
 
@@ -123,15 +123,15 @@ export default function Hero() {
           </div>
 
           {/* Broad, Informative Bio Narrative */}
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal max-w-3xl">
+          <p className="text-base sm:text-lg lg:text-[19px] text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
             Computer Science undergraduate at <strong className="text-slate-900 dark:text-white font-semibold">MIT ADT University, Pune</strong> (CGPA: 8.14). Published researcher in AI, IoT, and urban systems, with <strong className="text-slate-900 dark:text-white font-semibold">11 open-source GitHub repositories</strong> spanning real-time computer vision (YOLOv5), enterprise Spring Boot microservices, and predictive machine learning.
           </p>
 
           {/* Functional Actions Row */}
-          <div className="flex flex-wrap items-center gap-2.5 pt-1">
+          <div className="flex flex-wrap items-center gap-3 pt-1">
             <Link
               href="#projects"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xs"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-semibold text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]"
             >
               <span>Explore 11+ Projects</span>
               <ArrowRight className="w-4 h-4" />
@@ -140,7 +140,7 @@ export default function Hero() {
             <a
               href="/resume/Aman_Inamdar_Resume.pdf"
               download="Aman_Inamdar_Resume.pdf"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-850 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-850 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-semibold text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
             >
               <FileDown className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
               <span>Download Resume</span>
@@ -149,7 +149,7 @@ export default function Hero() {
             {/* Functional 1-Click Copy Email Button */}
             <button
               onClick={handleCopyEmail}
-              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-mono font-medium transition-all"
+              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-mono font-medium transition-all duration-300 ease-out hover:-translate-y-0.5"
               title="Click to copy email address"
             >
               {copiedEmail ? (
@@ -170,7 +170,7 @@ export default function Hero() {
               href="https://github.com/amann1602"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
+              className="p-3 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-sm"
               title="Visit GitHub Profile (amann1602)"
             >
               <GithubIcon className="w-4 h-4" />
@@ -181,7 +181,7 @@ export default function Hero() {
               href="https://www.linkedin.com/in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
+              className="p-3 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-sm"
               title="Connect on LinkedIn"
             >
               <LinkedinIcon className="w-4 h-4" />

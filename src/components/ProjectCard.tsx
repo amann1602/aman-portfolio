@@ -22,7 +22,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.98 }}
       transition={{ duration: 0.3 }}
-      className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:border-indigo-400 dark:hover:border-indigo-600/70 hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+      className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:border-indigo-200 dark:hover:border-indigo-800/60 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out flex flex-col justify-between group"
     >
       <div className="space-y-4">
         {/* Top Badges & Meta */}

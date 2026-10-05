@@ -40,7 +40,7 @@ export default function ResumeCta() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-indigo-500" />
-                  Resume-Verified
+                  Updated 2026
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-sky-500" />

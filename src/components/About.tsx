@@ -19,7 +19,7 @@ export default function About() {
       id="about"
       className="py-10 sm:py-12 md:py-14 bg-slate-50/60 dark:bg-slate-900/40 border-y border-slate-200/70 dark:border-slate-800/70 transition-colors duration-300"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12">
         {/* Section Heading */}
         <div className="max-w-3xl mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/80 dark:border-indigo-800 text-xs font-mono font-semibold tracking-wider text-indigo-700 dark:text-indigo-400 mb-3">
@@ -43,7 +43,7 @@ export default function About() {
             transition={{ duration: 0.45 }}
             className="lg:col-span-7 space-y-5"
           >
-            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs space-y-4">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:-translate-y-1 hover:shadow-xl hover:border-indigo-200 dark:hover:border-slate-700 transition-all duration-300 ease-out space-y-4">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
                 <span>Engineering & Research Mindset</span>
               </h3>
@@ -80,7 +80,7 @@ export default function About() {
             transition={{ duration: 0.45, delay: 0.15 }}
             className="lg:col-span-5"
           >
-            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs space-y-6">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:-translate-y-1 hover:shadow-xl hover:border-indigo-200 dark:hover:border-slate-700 transition-all duration-300 ease-out space-y-6">
               <div className="flex items-center gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
                 <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-indigo-100 dark:border-indigo-900/60 shadow-sm shrink-0 bg-slate-100 dark:bg-slate-800">
                   <Image
@@ -104,7 +104,7 @@ export default function About() {
                     B.Tech AI & Analytics • MIT ADT
                   </p>
                   <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono mt-0.5">
-                    Verified Profile Snapshot
+                    Professional Profile Snapshot
                   </p>
                 </div>
               </div>

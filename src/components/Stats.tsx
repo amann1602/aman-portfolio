@@ -15,7 +15,7 @@ const statIcons = [
 export default function Stats() {
   return (
     <section className="relative z-20 my-4 sm:my-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {profile.stats.map((stat, idx) => (
             <motion.div
@@ -24,14 +24,14 @@ export default function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: idx * 0.06 }}
-              className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between"
+              className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-slate-700 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-out flex flex-col justify-between"
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="p-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700/70">
                   {statIcons[idx]}
                 </span>
                 <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold">
-                  Verified
+                  0{idx + 1}
                 </span>
               </div>
               <div>

@@ -16,7 +16,7 @@ export default function ProjectGrid() {
 
   return (
     <section id="projects" className="py-10 sm:py-14 md:py-16 bg-white dark:bg-slate-950 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12">
         {/* Section Heading */}
         <div className="max-w-3xl mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/80 dark:border-indigo-800 text-xs font-mono font-semibold tracking-wider text-indigo-700 dark:text-indigo-400 mb-2">
@@ -38,7 +38,7 @@ export default function ProjectGrid() {
 
         {/* Counter indicator */}
         <div className="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-4 px-1">
-          <span>Showing {filteredProjects.length} of {projects.length} verified projects</span>
+          <span>Showing {filteredProjects.length} of {projects.length} curated projects</span>
           <span className="hidden sm:inline">Synced with github.com/amann1602</span>
         </div>
 

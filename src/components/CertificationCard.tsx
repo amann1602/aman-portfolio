@@ -8,7 +8,7 @@ import { certifications } from '@/data/certifications';
 export default function CertificationCard() {
   return (
     <section id="certifications" className="py-10 sm:py-12 md:py-14 bg-white dark:bg-slate-950 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12">
         {/* Section Heading */}
         <div className="max-w-3xl mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono font-semibold tracking-wider text-slate-700 dark:text-slate-300 mb-3">
@@ -31,7 +31,7 @@ export default function CertificationCard() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: idx * 0.05 }}
-              className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between"
+              className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:border-indigo-200 dark:hover:border-slate-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out flex flex-col justify-between"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -67,8 +67,8 @@ export default function CertificationCard() {
                   </a>
                 ) : (
                   <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500 flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-                    <span>Verified Credential</span>
+                    <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
+                    <span>Official Credential</span>
                   </span>
                 )}
               </div>

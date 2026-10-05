@@ -30,7 +30,7 @@ export default function Skills() {
       id="skills"
       className="py-10 sm:py-12 md:py-14 bg-slate-50/60 dark:bg-slate-900/40 border-y border-slate-200/70 dark:border-slate-800/70 transition-colors duration-300"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12">
         {/* Section Heading */}
         <div className="max-w-3xl mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/80 dark:border-indigo-800 text-xs font-mono font-semibold tracking-wider text-indigo-700 dark:text-indigo-400 mb-3">
@@ -40,7 +40,7 @@ export default function Skills() {
             Technical Skills
           </h2>
           <p className="mt-2 text-base text-slate-600 dark:text-slate-400">
-            A comprehensive matrix of verified programming languages, frameworks, analytics utilities, and engineering tools. No arbitrary percentage bars.
+            A comprehensive matrix of programming languages, frameworks, analytics utilities, and engineering tools. No arbitrary percentage bars.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: idx * 0.05 }}
-              className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between"
+              className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs hover:border-indigo-200 dark:hover:border-slate-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-3 mb-3">

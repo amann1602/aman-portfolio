@@ -30,7 +30,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-white dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start justify-between">
           {/* Identity & Mission */}
           <div className="md:col-span-6 space-y-3">

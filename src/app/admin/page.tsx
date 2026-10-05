@@ -29,8 +29,11 @@ import {
   LayoutDashboard,
   Info,
   Check,
-  RotateCcw
+  RotateCcw,
+  Mail,
+  Inbox
 } from 'lucide-react';
+import ContactRequestsManager from '@/components/admin/ContactRequestsManager';
 
 const DEFAULT_USER_ID = 'amaninamdar7775@gmail.com';
 const DEFAULT_PASSWORD = 'Inamdar@77';
@@ -44,6 +47,7 @@ interface SectionMeta {
 }
 
 const SECTIONS: SectionMeta[] = [
+  { id: 'contact-requests', label: 'Contact Requests', icon: Mail, description: 'Incoming recruitment inquiries & project requests', badge: 'Inbox' },
   { id: 'education', label: 'Education', icon: GraduationCap, description: 'Degrees, colleges, CGPA & academic timeline', badge: 'Academics' },
   { id: 'certifications', label: 'Certifications', icon: Award, description: 'Professional certificates, issuers & verification links', badge: 'Credentials' },
   { id: 'skills', label: 'Technical Skills', icon: Code2, description: 'Skill categories, tech stacks & competencies', badge: 'Core' },
@@ -72,8 +76,9 @@ export default function AdminPage() {
   const [authError, setAuthError] = useState<string>('');
   const [authLoading, setAuthLoading] = useState<boolean>(false);
 
-  const [activeSection, setActiveSection] = useState<string>('education');
+  const [activeSection, setActiveSection] = useState<string>('contact-requests');
   const [editorMode, setEditorMode] = useState<'visual' | 'code'>('visual');
+  const [unreadCount, setUnreadCount] = useState<number>(0);
 
   // Multi-section isolated data cache to prevent cross-contamination
   const [dataCache, setDataCache] = useState<Record<string, any>>({});
@@ -98,8 +103,26 @@ export default function AdminPage() {
     } catch {}
   }, []);
 
+  // Fetch unread count for contact requests
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetch('/api/contact')
+        .then(r => r.json())
+        .then(data => {
+          if (data?.stats?.new !== undefined) {
+            setUnreadCount(data.stats.new);
+          }
+        })
+        .catch(() => {});
+    }
+  }, [isAuthenticated, activeSection]);
+
   // Fetch section data whenever activeSection changes or isn't cached
   const fetchSectionData = useCallback(async (sectionId: string, force = false) => {
+    if (sectionId === 'contact-requests') {
+      return; // Handled by ContactRequestsManager
+    }
+
     if (!force && dataCache[sectionId] !== undefined) {
       return; // Already cached
     }
@@ -446,7 +469,11 @@ export default function AdminPage() {
                     <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-slate-500'}`} />
                     <span className="text-xs sm:text-sm truncate">{section.label}</span>
                   </div>
-                  {section.badge && (
+                  {section.id === 'contact-requests' && unreadCount > 0 ? (
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full font-bold bg-emerald-500 text-white animate-pulse shrink-0">
+                      {unreadCount}
+                    </span>
+                  ) : section.badge ? (
                     <span
                       className={`text-[9px] font-mono px-2 py-0.5 rounded-md uppercase font-bold shrink-0 ${
                         isActive
@@ -456,7 +483,7 @@ export default function AdminPage() {
                     >
                       {section.badge}
                     </span>
-                  )}
+                  ) : null}
                 </button>
               );
             })}
@@ -486,59 +513,63 @@ export default function AdminPage() {
                 </div>
               </div>
 
-              {/* Mode Toggle & Save Button */}
-              <div className="flex items-center gap-2 shrink-0">
-                <div className="bg-slate-200/70 p-1 rounded-xl flex items-center text-xs font-semibold text-slate-600">
+              {/* Mode Toggle & Save Button (Hidden for Contact Requests) */}
+              {activeSection !== 'contact-requests' && (
+                <div className="flex items-center gap-2 shrink-0">
+                  <div className="bg-slate-200/70 p-1 rounded-xl flex items-center text-xs font-semibold text-slate-600">
+                    <button
+                      type="button"
+                      onClick={() => setEditorMode('visual')}
+                      className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all ${
+                        editorMode === 'visual'
+                          ? 'bg-white text-indigo-700 shadow-xs font-bold'
+                          : 'hover:text-slate-900'
+                      }`}
+                    >
+                      <LayoutDashboard className="w-3.5 h-3.5" />
+                      <span>Visual Form</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setEditorMode('code')}
+                      className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all ${
+                        editorMode === 'code'
+                          ? 'bg-white text-indigo-700 shadow-xs font-bold'
+                          : 'hover:text-slate-900'
+                      }`}
+                    >
+                      <FileCode className="w-3.5 h-3.5" />
+                      <span>TypeScript Code</span>
+                    </button>
+                  </div>
+
                   <button
                     type="button"
-                    onClick={() => setEditorMode('visual')}
-                    className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all ${
-                      editorMode === 'visual'
-                        ? 'bg-white text-indigo-700 shadow-xs font-bold'
-                        : 'hover:text-slate-900'
-                    }`}
+                    onClick={handleSave}
+                    disabled={saving || isCurrentSectionLoading}
+                    className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white text-xs font-bold shadow-md shadow-indigo-200 transition-all flex items-center gap-1.5"
                   >
-                    <LayoutDashboard className="w-3.5 h-3.5" />
-                    <span>Visual Form</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setEditorMode('code')}
-                    className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all ${
-                      editorMode === 'code'
-                        ? 'bg-white text-indigo-700 shadow-xs font-bold'
-                        : 'hover:text-slate-900'
-                    }`}
-                  >
-                    <FileCode className="w-3.5 h-3.5" />
-                    <span>TypeScript Code</span>
+                    {saving ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        <span>Saving...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Save className="w-3.5 h-3.5" />
+                        <span>Save Changes</span>
+                      </>
+                    )}
                   </button>
                 </div>
-
-                <button
-                  type="button"
-                  onClick={handleSave}
-                  disabled={saving || isCurrentSectionLoading}
-                  className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white text-xs font-bold shadow-md shadow-indigo-200 transition-all flex items-center gap-1.5"
-                >
-                  {saving ? (
-                    <>
-                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                      <span>Saving...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Save className="w-3.5 h-3.5" />
-                      <span>Save Changes</span>
-                    </>
-                  )}
-                </button>
-              </div>
+              )}
             </div>
 
             {/* Content Body */}
             <div className="p-6">
-              {isCurrentSectionLoading && activeData === undefined ? (
+              {activeSection === 'contact-requests' ? (
+                <ContactRequestsManager />
+              ) : isCurrentSectionLoading && activeData === undefined ? (
                 <div className="py-24 text-center">
                   <Loader2 className="w-8 h-8 animate-spin mx-auto text-indigo-600 mb-2" />
                   <p className="text-xs text-slate-500 font-mono">Loading {currentSectionMeta.label} data...</p>

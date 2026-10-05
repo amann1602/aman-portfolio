@@ -15,7 +15,7 @@ export default function Achievements() {
     <section id="achievements" className="py-20 md:py-28 relative bg-slate-50 dark:bg-slate-900/60 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Verified Milestones"
+          badge="Key Milestones"
           title="Key"
           highlight="Achievements"
           subtitle="Concrete milestones earned through research publications, industry internships, and competitive hackathons."
