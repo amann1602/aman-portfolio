@@ -71,10 +71,7 @@ export default function Hero() {
       {/* Subtle background tech grid */}
       <div className="absolute inset-0 bg-tech-grid opacity-60 pointer-events-none" />
 
-      {/* Gentle background accent glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-50/70 dark:bg-indigo-950/20 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12 relative z-10">
         
         {/* ========================================================================= */}
         {/* 1. EXPANSIVE HERO TEXT & IDENTITY (Centered Alignment)                    */}
@@ -88,12 +85,12 @@ export default function Hero() {
               <span className="font-semibold">Available for AI & Software Roles</span>
             </span>
 
-            <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400">
+            <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300">
               <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
               <span>amaninamdar.in</span>
             </span>
 
-            <span className="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400">
+            <span className="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300">
               <span>Pune, Maharashtra, India</span>
             </span>
           </div>
@@ -123,7 +120,7 @@ export default function Hero() {
           </div>
 
           {/* Broad, Informative Bio Narrative */}
-          <p className="text-base sm:text-lg lg:text-[19px] text-slate-600 dark:text-slate-300 leading-relaxed font-normal text-center max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-[19px] text-slate-700 dark:text-slate-200 leading-relaxed font-normal text-center max-w-3xl mx-auto">
             Computer Science undergraduate at <strong className="text-slate-900 dark:text-white font-semibold">MIT ADT University, Pune</strong> (CGPA: 8.14). Published researcher in AI, IoT, and urban systems, with <strong className="text-slate-900 dark:text-white font-semibold">11 open-source GitHub repositories</strong> spanning real-time computer vision (YOLOv5), enterprise Spring Boot microservices, and predictive machine learning.
           </p>
 
@@ -140,36 +137,38 @@ export default function Hero() {
             <a
               href="/resume/Aman_Inamdar_Resume.pdf"
               download="Aman_Inamdar_Resume.pdf"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-850 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-semibold text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-850 text-slate-900 dark:text-slate-100 border border-slate-300 dark:border-slate-700 font-semibold text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
             >
               <FileDown className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
               <span>Download Resume</span>
             </a>
 
-            {/* Interactive Ask Aman AI Chat Button */}
+            {/* Interactive Ask Aman AI Chat Button - High Contrast Vibrant Indigo */}
             <button
+              type="button"
               onClick={() => window.dispatchEvent(new CustomEvent('open-ai-chat'))}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-semibold text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-indigo-600/25 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer"
               title="Open AI Chat Assistant"
             >
-              <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <Sparkles className="w-4 h-4 text-indigo-200" />
               <span>Ask Aman AI</span>
             </button>
 
             {/* Functional 1-Click Copy Email Button */}
             <button
+              type="button"
               onClick={handleCopyEmail}
-              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-mono font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-mono font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 cursor-pointer"
               title="Click to copy email address"
             >
               {copiedEmail ? (
                 <>
-                  <Check className="w-4 h-4 text-emerald-500" />
-                  <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Email Copied!</span>
+                  <Check className="w-4 h-4 text-emerald-600 font-bold" />
+                  <span className="text-emerald-700 dark:text-emerald-400 font-bold">Email Copied!</span>
                 </>
               ) : (
                 <>
-                  <Copy className="w-4 h-4 text-slate-500" />
+                  <Copy className="w-4 h-4 text-slate-600 dark:text-slate-400" />
                   <span>amaninamdar7775@gmail.com</span>
                 </>
               )}
@@ -180,7 +179,7 @@ export default function Hero() {
               href="https://github.com/amann1602"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-sm"
+              className="p-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-sm"
               title="Visit GitHub Profile (amann1602)"
             >
               <GithubIcon className="w-4 h-4" />
@@ -191,33 +190,32 @@ export default function Hero() {
               href="https://www.linkedin.com/in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-sm"
+              className="p-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-sm"
               title="Connect on LinkedIn"
             >
               <LinkedinIcon className="w-4 h-4" />
             </a>
           </div>
 
-          {/* Factual Credential Badges */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-y-2.5 gap-x-6 text-xs font-mono text-slate-500 dark:text-slate-400">
+          {/* Factual Credential Badges - High Contrast */}
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-y-2.5 gap-x-6 text-xs sm:text-[13px] font-mono font-medium text-slate-700 dark:text-slate-300">
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
               <span>8.14 CGPA • MIT ADT University</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-indigo-500" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
               <span>2 Published Research Papers</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-blue-500" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
               <span>11 Synced GitHub Repositories</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
               <span>2 Software & Embedded Internships</span>
             </span>
           </div>
-
         </div>
 
         {/* ========================================================================= */}
