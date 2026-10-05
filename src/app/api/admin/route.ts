@@ -11,12 +11,47 @@ function verifyAuth(request: NextRequest): boolean {
   return user === ADMIN_USER_ID && token === ADMIN_PASSWORD;
 }
 
-function getDataFilePath(section: string): { ts: string; js: string } {
-  const dataDir = path.join(process.cwd(), 'src', 'data');
-  return {
-    ts: path.join(dataDir, `${section}.ts`),
-    js: path.join(dataDir, `${section}.js`),
-  };
+const ALLOWED_SECTIONS: Record<string, { ts: string; js: string }> = {
+  education: {
+    ts: path.join(process.cwd(), 'src', 'data', 'education.ts'),
+    js: path.join(process.cwd(), 'src', 'data', 'education.js'),
+  },
+  certifications: {
+    ts: path.join(process.cwd(), 'src', 'data', 'certifications.ts'),
+    js: path.join(process.cwd(), 'src', 'data', 'certifications.js'),
+  },
+  skills: {
+    ts: path.join(process.cwd(), 'src', 'data', 'skills.ts'),
+    js: path.join(process.cwd(), 'src', 'data', 'skills.js'),
+  },
+  profile: {
+    ts: path.join(process.cwd(), 'src', 'data', 'profile.ts'),
+    js: path.join(process.cwd(), 'src', 'data', 'profile.js'),
+  },
+  socials: {
+    ts: path.join(process.cwd(), 'src', 'data', 'socials.ts'),
+    js: path.join(process.cwd(), 'src', 'data', 'socials.js'),
+  },
+  experience: {
+    ts: path.join(process.cwd(), 'src', 'data', 'experience.ts'),
+    js: path.join(process.cwd(), 'src', 'data', 'experience.js'),
+  },
+  publications: {
+    ts: path.join(process.cwd(), 'src', 'data', 'publications.ts'),
+    js: path.join(process.cwd(), 'src', 'data', 'publications.js'),
+  },
+  achievements: {
+    ts: path.join(process.cwd(), 'src', 'data', 'achievements.ts'),
+    js: path.join(process.cwd(), 'src', 'data', 'achievements.js'),
+  },
+  projects: {
+    ts: path.join(process.cwd(), 'src', 'data', 'projects.ts'),
+    js: path.join(process.cwd(), 'src', 'data', 'projects.js'),
+  },
+};
+
+function getDataFilePath(section: string): { ts: string; js: string } | null {
+  return ALLOWED_SECTIONS[section] || null;
 }
 
 // Extract parsed data from TypeScript file
@@ -302,12 +337,12 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Section parameter required' }, { status: 400 });
   }
 
-  const { ts } = getDataFilePath(section);
-  if (!fs.existsSync(ts)) {
+  const filePaths = getDataFilePath(section);
+  if (!filePaths || !fs.existsSync(filePaths.ts)) {
     return NextResponse.json({ error: `Section ${section} not found` }, { status: 404 });
   }
 
-  const rawContent = fs.readFileSync(ts, 'utf-8');
+  const rawContent = fs.readFileSync(filePaths.ts, 'utf-8');
   const parsedData = extractSectionData(section, rawContent);
 
   return NextResponse.json({
@@ -354,12 +389,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Section identifier required' }, { status: 400 });
   }
 
-  const { ts, js } = getDataFilePath(section);
-  if (!fs.existsSync(ts)) {
+  const filePaths = getDataFilePath(section);
+  if (!filePaths || !fs.existsSync(filePaths.ts)) {
     return NextResponse.json({ error: `Section file not found for ${section}` }, { status: 404 });
   }
 
-  const originalContent = fs.readFileSync(ts, 'utf-8');
+  const originalContent = fs.readFileSync(filePaths.ts, 'utf-8');
 
   // Determine final TypeScript content: either direct raw content or generated from visual data
   let finalTsContent: string;
@@ -378,22 +413,20 @@ export async function POST(request: NextRequest) {
       fs.mkdirSync(backupDir, { recursive: true });
     }
     const backupPath = path.join(backupDir, `${section}.${Date.now()}.backup.ts`);
-    fs.copyFileSync(ts, backupPath);
+    fs.copyFileSync(filePaths.ts, backupPath);
   } catch (backupErr) {
     console.warn('Backup creation failed:', backupErr);
   }
 
-  // Write new TypeScript file
-  fs.writeFileSync(ts, finalTsContent, 'utf-8');
-
-  // Also sync companion JS file if it exists
+  // Write new TypeScript file safely (handles read-only filesystems)
   try {
-    if (fs.existsSync(js)) {
+    fs.writeFileSync(filePaths.ts, finalTsContent, 'utf-8');
+    if (fs.existsSync(filePaths.js)) {
       const jsContent = generateCompanionJs(section, finalTsContent);
-      fs.writeFileSync(js, jsContent, 'utf-8');
+      fs.writeFileSync(filePaths.js, jsContent, 'utf-8');
     }
-  } catch (jsErr) {
-    console.warn('JS sync warning:', jsErr);
+  } catch (fsErr) {
+    console.warn('Filesystem write notice (read-only environment):', fsErr);
   }
 
   // Return updated parsed data and raw content
