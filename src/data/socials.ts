@@ -11,7 +11,7 @@ export const contactDetails = {
   email: "amaninamdar7775@gmail.com",
   phone: "+91-7775909442",
   location: "Pune, Maharashtra, India",
-  preferredDomain: "https://amaninamdar.in"
+  preferredDomain: "https://aman-portfolio.vercel.app"
 };
 
 export const socialLinks: SocialLink[] = [
