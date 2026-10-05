@@ -26,9 +26,9 @@ export const socialLinks: SocialLink[] = [
   {
     id: "github",
     name: "GitHub",
-    username: "amaninamdar",
-    url: "https://github.com/", // Placeholder: update with your personal GitHub username
-    isPlaceholder: true,
+    username: "amann1602",
+    url: "https://github.com/amann1602",
+    isPlaceholder: false,
     icon: "Github"
   },
   {
